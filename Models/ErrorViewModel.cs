@@ -1,4 +1,4 @@
-namespace DATAGOV_API_INTRO_8.Models;
+namespace SPOTIFY_APP.Models;
 
 public class ErrorViewModel
 {

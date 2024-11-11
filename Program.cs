@@ -1,6 +1,4 @@
-using DATAGOV_API_INTRO_8.Services;
-
-namespace DATAGOV_API_INTRO_8
+namespace SPOTIFY_APP
 {
     public class Program
     {
@@ -10,14 +8,24 @@ namespace DATAGOV_API_INTRO_8
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSession(); // Add session services
 
-            // Register ParksService as a singleton
-            builder.Services.AddSingleton<ParksService>();
+            // Add HttpClient for SpotifyService
+            builder.Services.AddHttpClient<Services.SpotifyService>();
+
+
+            // Configure settings from appsettings.json
+            builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
@@ -28,13 +36,23 @@ namespace DATAGOV_API_INTRO_8
 
             app.UseRouting();
 
-            app.UseAuthorization();
+
+
+
+
+            app.UseSession(); // Enable session middleware
+
+
+            // Add route for SpotifyController actions
+
 
             app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+name: "spotify",
+pattern: "{controller=Spotify}/{action=Index}/{id?}");
+
 
             app.Run();
+
         }
     }
 }

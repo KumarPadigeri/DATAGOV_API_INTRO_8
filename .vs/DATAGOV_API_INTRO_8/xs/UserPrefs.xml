@@ -12,8 +12,8 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="DATAGOV_API_INTRO_8">
-            <Node name="DATAGOV_API_INTRO_8" expanded="True">
+          <Node name="SPOTIFY_APP">
+            <Node name="SPOTIFY_APP" expanded="True">
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>

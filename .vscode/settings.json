@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin/Release/net8.0/publish",
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/455690b8-095f-4d81-8017-ef3b2a7ab677/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/parks-app"
+}
